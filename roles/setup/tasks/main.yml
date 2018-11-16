@@ -1,0 +1,21 @@
+- name: "Install nginx"
+  apt:
+    name: "nginx"
+    state: present
+    update_cache: yes
+
+- name: Update Nginx Configuration files
+  become: true
+  template:
+    src: templates/nginx.conf
+    dest: "/etc/nginx/sites-available/default"
+
+- name: Restart Nginx
+  service:
+    name: nginx
+    state: restarted
+
+- name: "Install Git"
+  apt:
+    name: git
+    state: latest

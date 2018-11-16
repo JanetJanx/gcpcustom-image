@@ -1,0 +1,15 @@
+- hosts: all
+  become: yes
+  sudo: yes
+  gather_facts: no
+
+  vars:
+	  ansible_python_interpreter: '/usr/bin/python3'
+	  NODEJS_VERSION: '10'
+	  ansible_distribution_release: 'bionic'
+
+  roles:
+	  -setup
+
+  tasks:
+  	- include: tasks/main.yml

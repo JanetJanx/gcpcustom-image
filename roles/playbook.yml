@@ -2,6 +2,7 @@
   become: yes
 
   vars:
+   ansible_python_interpreter: "/usr/bin/python3"
    NODEJS_VERSION: '10'
    ansible_distribution_release: 'bionic'
 

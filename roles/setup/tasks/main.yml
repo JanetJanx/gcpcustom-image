@@ -19,3 +19,18 @@
   apt:
     name: git
     state: latest
+
+- name: "clone react app"
+  shell: git clone https://github.com/inno-asiimwe/css_clock.git && cd css_clock
+
+- name: "Add at key for yarn package"
+  shell: curl -sL https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+
+- name: "Add yarn package source url to source list"
+  shell: echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+
+- name: "Install Yarn"
+  shell: sudo apt update && sudo apt install yarn -y
+
+- name: "Install yarn packages for the clock app"
+  shell: yarn install -y
